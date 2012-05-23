@@ -1,4 +1,8 @@
-You have an example of use in `demo_extended.php`
+# About
+Enkas Custom Scrollbar plugin is an solution based on Malihu JQuery Custom Scrollbar Plugin (jquery.mCustomScrollbar.js) that extend and improve it be easier to use
+
+You have an example of use in `demo_enkas.php`
+An original demo example of Malihu is keeped in `demo_malihu.php`
 
 # Installation guide:
 
@@ -13,7 +17,7 @@ You have an example of use in `demo_extended.php`
         <script src="js/jquery.mCustomScrollbar.enkas.js"></script>
     </code>
 
-## 2) Add on your elements the class 'scrollbar' and make sure your elements that has the 'scrollbar' class set has also set an unique id attribute
+## 2) Add on your elements the class 'scrollbar' and make sure your elements that has the 'scrollbar' class set, has also set an unique id attribute
 
 ex 1:
     <code>
@@ -39,6 +43,10 @@ ex 2:
         });
     </code>
 
+# Version
+
+v 0.2 Beta
+
 # Details
 
-More details will be added on Wiki page
+More details will be added on [[Wiki]] page
