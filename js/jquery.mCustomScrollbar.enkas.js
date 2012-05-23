@@ -35,7 +35,7 @@ function initScrollbars( element ){
             $(this).height( $(this).css('max-height').replace('px','') );
         }
         if ($(this).attr('id')) {
-            console.log("initScrollbars() | " + $(this).attr('id'));
+            //console.log("initScrollbars() | " + $(this).attr('id'));
             try{
                 addScrollbar('#'+$(this).attr('id'));
             }catch(err){
@@ -47,7 +47,7 @@ function initScrollbars( element ){
             try{
                 addScrollbar('.'+$(this).attr('class').replace(' scrollbar',''));
             }catch(err){
-                //alert("ERROR: On class: "+$(this).attr('class')+"\n"+err);
+                console.log("initScrollbars() | ERROR: On class: " + $(this).attr('class') + "\n" + err);
             }
         }
     });
@@ -62,8 +62,7 @@ function reInitIdScrollbar( idName, autoScroolDown ){
             //this is in the case of entire div content was overwritten
             addScrollbar( "#" + idName );
         }else{
-            //$("#"+idName).mCustomScrollbar("vertical",400,"easeOutCirc",1.05,"auto","yes","yes",10,autoScroolDown);
-            $("#" + idName).mCustomScrollbar("vertical",400,"easeOutCirc",1.05,"auto","yes","yes",10);
+            $("#"+idName).mCustomScrollbar("vertical",400,"easeOutCirc",1.05,"auto","yes","yes",10,autoScroolDown);
         }
     }catch(e){ console.log("reInitIdScrollbar() | " + e); }
 }

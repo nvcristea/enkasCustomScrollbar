@@ -1,6 +1,6 @@
 /* malihu custom scrollbar plugin - http://manos.malihu.gr */
 (function ($) {
-$.fn.mCustomScrollbar = function (scrollType,animSpeed,easeType,bottomSpace,draggerDimType,mouseWheelSupport,scrollBtnsSupport,scrollBtnsSpeed){
+$.fn.mCustomScrollbar = function (scrollType,animSpeed,easeType,bottomSpace,draggerDimType,mouseWheelSupport,scrollBtnsSupport,scrollBtnsSpeed,autoScrollDown){
 	var id = $(this).attr("id");
 	var $customScrollBox=$("#"+id+" .customScrollBox");
 	var $customScrollBox_container=$("#"+id+" .customScrollBox .container");
@@ -291,7 +291,7 @@ $.fn.mCustomScrollbar = function (scrollType,animSpeed,easeType,bottomSpace,drag
 					function BtnsScroll(dir){
 						if(dir=="down"){
 							var btnsScrollTo=$dragger_container.height()-$dragger.height();
-							var scrollSpeed=Math.abs($dragger.position().top-btnsScrollTo)*(100/scrollBtnsSpeed);
+							var scrollSpeed=Math.abs($dragger.position().top-btnsScrollTo)*(100/scrollBtnsSpeed)/100;
 							$dragger.stop().animate({top: btnsScrollTo}, scrollSpeed,"linear");
 						} else {
 							var btnsScrollTo=0;
@@ -319,6 +319,18 @@ $.fn.mCustomScrollbar = function (scrollType,animSpeed,easeType,bottomSpace,drag
 					var thePos=$customScrollBox_container.position().top-targY;
 					$customScrollBox_container.stop().animate({top: "-="+thePos}, animSpeed, easeType);
 				}
+                
+                //auto scroll bottom
+                if ( autoScrollDown==true ){
+                    var autoBtnsScrollTo=$dragger_container.height()-$dragger.height();
+                    $dragger.css("top", autoBtnsScrollTo);//set the scrollbar position
+                    
+                    newTopDownPos = $dragger_container.height() - $customScrollBox_container.height();
+                    $customScrollBox_container.css("top", newTopDownPos);//set the container position
+
+                }
+                //$customScrollBox_container.stop().animate({top: "-="+thePos}, animSpeed, easeType);
+                
 			} else { //disable scrollbar if content is short
 				$dragger.css("top",0).css("display","none"); //reset content scroll
 				$customScrollBox_container.css("top",0);
@@ -349,9 +361,11 @@ $.fn.mCustomScrollbar = function (scrollType,animSpeed,easeType,bottomSpace,drag
 				$dragger.css("left", $dragger_container.width()-$dragger.width());
 			}
 		} else {
-			if($dragger.position().top>$dragger_container.height()-$dragger.height()){
-				$dragger.css("top", $dragger_container.height()-$dragger.height());
-			}
+            if ('undefined' != typeof($dragger.position()) && null != $dragger.position()) {
+                if($dragger.position().top>$dragger_container.height()-$dragger.height()){
+                    $dragger.css("top", $dragger_container.height()-$dragger.height());
+                }
+            }
 		}
 		CustomScroller("resize");
 	});
