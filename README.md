@@ -1,4 +1,4 @@
-You have an example of use in demo_extended.php
+You have an example of use in `demo_extended.php`
 
 # Installation guide:
 
@@ -15,9 +15,16 @@ You have an example of use in demo_extended.php
 
 ## 2) Add on your elements the class 'scrollbar' and make sure your elements that has the 'scrollbar' class set has also set an unique id attribute
 
-ex:
+ex 1:
     <code>
         < div id="my_container" class="scrollbar" >
+            Lorem ipsum... your html content ...
+        < /div >
+    </code>
+
+ex 2:
+    <code>
+        < div id="my_id" class="my-class my-other-class scrollbar" >
             Lorem ipsum... your html content ...
         < /div >
     </code>
@@ -31,3 +38,7 @@ ex:
             reInitIdScrollbar(id);
         });
     </code>
+
+# Details
+
+More details will be added on Wiki page
