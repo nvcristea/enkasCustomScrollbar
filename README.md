@@ -16,13 +16,11 @@ You have an example of use in demo_extended.php
 ## 2) Add on your elements the class 'scrollbar' and make sure your elements that has the 'scrollbar' class set has also set an unique id attribute
 
 ex:
-    <code><pre>
-        <div id="my_container" class="scrollbar">
-            <h1>Adjustable scroller height without easing</h1>
-            <p>In hac habitasse platea dictumst. Aliquam erat volutpat. Maecenas non tortor nulla, non malesuada velit. Nullam felis tellus, tristique nec egestas in, luctus sed diam. Suspendisse potenti. Cras venenatis condimentum nibh a mollis. Duis id sapien nibh. Vivamus porttitor, felis quis blandit tincidunt, erat magna scelerisque urna, a faucibus erat nisl eget nisl. Aliquam consequat turpis id velit egestas a posuere orci semper.</p>
-            <h1>the end.</h1>
-        </div>
-    </pre></code>
+    <code>
+        < div id="my_container" class="scrollbar" >
+            Lorem ipsum... your html content ...
+        < /div >
+    </code>
 
 ## 3) Have fun! All set.
 
